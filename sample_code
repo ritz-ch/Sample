@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int main(int argc,char* argv[])
+{
+     int n=0;
+     char* a[100000];
+     a[0]="wake up";
+     a[1]="exercise";
+     a[2]="bath";
+     n=3;
+     if(strcmp(argv[1],"add")==0)  //it's not in <string> file rather <string.h> & cannot be compared using ==
+    {
+        
+          a[n++]=argv[2];
+         
+    }else if(strcmp(argv[1],"ls")==0)
+     {
+         for(int i=0;i<n;i++)
+              cout<<a[i]<<"\n";
+
+     }else if(strcmp(argv[1],"done")==0)
+     {
+                for(int j=stoi(argv[2]);j<n;j++)  //argv[2] is a string 
+                        a[j-1]=a[j];
+     }
+
+  return 0;
+}
